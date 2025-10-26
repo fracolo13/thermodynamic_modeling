@@ -1,4 +1,4 @@
-# Thermomechanical Simulation - Matrix Singularity Fix and Python Translation
+# Thermomechanical Simulation 
 
 This repository contains the original MATLAB code of a thermomechanical simulation for slab break-off scenarios.
 
@@ -159,93 +159,6 @@ This model is used to study:
 The code represents a state-of-the-art implementation of coupled thermomechanical modeling for understanding fundamental processes in subduction zone dynamics and slab evolution.
 
 ---
-
-## Python Translation
-A complete Python translation of this MATLAB code is also available in this repository (`final_working_simulation.py`) with full feature parity, implemented using NumPy, SciPy, and matplotlib.
-
-The MATLAB code now includes:
-- Matrix regularization to prevent singularity
-- Condition number monitoring
-- Iterative solver fallback
-- Better error messages and warnings
-
-### Python Version
-```bash
-# Setup (run once)
-./setup.sh
-
-# Or manually install dependencies:
-pip install numpy scipy matplotlib
-
-# Run simulation
-python3 complete_thermomechanical.py
-```
-
-## Key Improvements Made
-
-
-
-### 1. Python Translation Features
-- **NumPy/SciPy** implementation for numerical computations
-- **Matplotlib** for visualization
-- **Sparse matrix handling** using SciPy for efficiency
-- **Modular design** with separate functions for:
-  - Marker-to-grid interpolation
-  - Stokes equation assembly
-  - Thermal equation assembly
-  - Matrix solving with regularization
-- **Error handling** and numerical stability improvements
-- **Reduced resolution** for faster testing (easily adjustable)
-
-### 2. Technical Improvements
-- **Better interpolation algorithms** with bounds checking
-- **Regularization techniques** for matrix conditioning
-- **Timestep adaptation** for numerical stability
-- **Boundary condition handling** improvements
-- **Memory-efficient** sparse matrix operations
-
-## Physical Model
-
-The simulation models:
-- **Thermomechanical coupling** between temperature and flow
-- **Variable viscosity** (temperature and stress dependent)
-- **Slab subduction dynamics** with break-off scenarios
-- **Heat transfer** with conduction, advection, and source terms
-- **Marker-in-cell method** for material property tracking
-
-### Model Setup:
-- **Domain**: 500 km × 400 km
-- **Resolution**: Adjustable (101×81 for MATLAB, 51×41 for Python demo)
-- **Materials**: Air, lithosphere, slab, mantle with different rheologies
-- **Physics**: Stokes flow + heat equation with coupling
-
-## Output
-
-Both versions generate:
-- **Visualization plots** showing:
-  - Density distribution
-  - Viscosity field
-  - Temperature field
-  - Pressure field
-  - Velocity components
-- **Numerical results** saved to files
-- **Time evolution** through multiple timesteps
-
-## Performance Notes
-
-- **MATLAB version**: Full resolution, production-ready
-- **Python version**: Optimized for demonstration, easily scalable
-- **Computational time**: Depends on resolution and number of timesteps
-- **Memory usage**: Sparse matrices reduce memory footprint significantly
-
-## Troubleshooting
-
-### Common Issues:
-1. **Matrix singularity**: Now handled automatically with regularization
-2. **Memory issues**: Reduce grid resolution (`Nx`, `Ny`) or marker density
-3. **Convergence problems**: Adjust regularization parameters or timestep
-4. **Python dependencies**: Run `./setup.sh` or install packages manually
-
 
 ## References
 
